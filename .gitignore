@@ -12,3 +12,11 @@ storage/
 .env.php
 .env
 .env.example
+
+
+*.psd
+*.PSD
+*.zip
+*.rar
+*.ai
+*.eps
