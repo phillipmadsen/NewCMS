@@ -1,33 +1,32 @@
 <?php
 
+use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSettingsTable extends Migration {
-
+class CreateMaillistTable extends Migration
+{
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up() {
-
-        Schema::create('settings', function ($table) {
+    public function up()
+    {
+        Schema::create('maillist', function (Blueprint $table) {
 
             $table->increments('id');
-            $table->text('settings');
+            $table->string('email');
             $table->timestamps();
-            $table->string('lang', 20);
         });
     }
-
 
     /**
      * Reverse the migrations.
      *
      * @return void
      */
-    public function down() {
-
-        Schema::drop('settings');
+    public function down()
+    {
+        Schema::drop('maillist');
     }
 }

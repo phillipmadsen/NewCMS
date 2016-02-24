@@ -1,18 +1,18 @@
 <?php
 
+use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFormPostsTable extends Migration {
-
+class CreateFormPostsTable extends Migration
+{
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up() {
-
-        Schema::create('form_posts', function ($table) {
-
+    public function up()
+    {
+        Schema::create('form_posts', function (Blueprint $table) {
             $table->increments('id');
             $table->string('sender_name_surname', 255);
             $table->string('sender_email', 255);
@@ -31,8 +31,8 @@ class CreateFormPostsTable extends Migration {
      *
      * @return void
      */
-    public function down() {
-
+    public function down()
+    {
         Schema::drop('form_posts');
     }
 }

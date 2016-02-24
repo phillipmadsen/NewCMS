@@ -1,18 +1,18 @@
 <?php
 
+use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSlidersTable extends Migration {
-
+class CreateSlidersTable extends Migration
+{
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up() {
-
-        Schema::create('sliders', function ($table) {
-
+    public function up()
+    {
+        Schema::create('sliders', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
             $table->text('description');
@@ -30,8 +30,10 @@ class CreateSlidersTable extends Migration {
      *
      * @return void
      */
-    public function down() {
-
+    public function down()
+    {
+                $table = 'slliders';
+        Storage::disk('local')->put($table . '_' . date('Y-m-d_H-i-s') . '.bak', json_encode(DB::table($table)->get()));
         Schema::drop('sliders');
     }
 }

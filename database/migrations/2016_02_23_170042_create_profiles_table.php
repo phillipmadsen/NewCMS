@@ -1,20 +1,20 @@
 <?php
 
+use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMaillistTable extends Migration {
-
+class CreateProfilesTable extends Migration
+{
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up() {
-
-        Schema::create('maillist', function ($table) {
-
+    public function up()
+    {
+        Schema::create('profiles', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('email');
+            
             $table->timestamps();
         });
     }
@@ -24,8 +24,8 @@ class CreateMaillistTable extends Migration {
      *
      * @return void
      */
-    public function down() {
-
-        Schema::drop('maillist');
+    public function down()
+    {
+        Schema::drop('profiles');
     }
 }

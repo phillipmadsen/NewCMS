@@ -1,17 +1,18 @@
 <?php
 
+use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateVideosTable extends Migration {
-
+class CreateVideosTable extends Migration
+{
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up() {
-
-        Schema::create('videos', function ($table) {
+    public function up()
+    {
+        Schema::create('videos', function (Blueprint $table) {
 
             $table->increments('id');
             $table->string('title', 255);
@@ -28,8 +29,8 @@ class CreateVideosTable extends Migration {
      *
      * @return void
      */
-    public function down() {
-
+    public function down()
+    {
         Schema::drop('videos');
     }
 }

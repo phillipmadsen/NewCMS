@@ -1,18 +1,18 @@
 <?php
 
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
-class CreatePagesTable extends Migration {
-
+class CreatePhotoGalleriesTable extends Migration
+{
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up() {
-
-        Schema::create('pages', function ($table) {
-
+    public function up()
+    {
+        Schema::create('photo_galleries', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title', 255);
             $table->string('slug')->nullable();
@@ -20,6 +20,8 @@ class CreatePagesTable extends Migration {
             $table->timestamps();
             $table->boolean('is_published')->default(true);
             $table->string('lang', 20);
+            $table->engine = 'InnoDB';
+            $table->timestamps();
         });
     }
 
@@ -28,8 +30,8 @@ class CreatePagesTable extends Migration {
      *
      * @return void
      */
-    public function down() {
-
-        Schema::drop('pages');
+    public function down()
+    {
+        Schema::drop('photo_galleries');
     }
 }

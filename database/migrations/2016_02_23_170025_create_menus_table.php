@@ -1,17 +1,18 @@
 <?php
 
+use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMenusTable extends Migration {
-
+class CreateMenusTable extends Migration
+{
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up() {
-
-        Schema::create('menus', function ($table) {
+    public function up()
+    {
+        Schema::create('menus', function (Blueprint $table) {
 
             $table->increments('id');
             $table->string('title', 255);
@@ -21,6 +22,8 @@ class CreateMenusTable extends Migration {
             $table->string('type', 10);
             $table->string('option', 255)->nullable();
             $table->boolean('is_published')->default(true);
+            $table->boolean('megamenu')->default(0);
+            $table->string('has_viewable_role')->nullable();
             $table->timestamps();
             $table->string('lang', 20);
         });
@@ -31,8 +34,8 @@ class CreateMenusTable extends Migration {
      *
      * @return void
      */
-    public function down() {
-
+    public function down()
+    {
         Schema::drop('menus');
     }
 }
